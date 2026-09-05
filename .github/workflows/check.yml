@@ -4,6 +4,8 @@ on:
   schedule:
     # Every 6 hours. Minute 17 to dodge the on-the-hour scheduler backlog.
     - cron: "17 0,6,12,18 * * *"
+  workflow_dispatch: # Allows for manual triggering
+  
 jobs:
   check:
     runs-on: ubuntu-latest
