@@ -1,0 +1,26 @@
+name: Check blazer availability
+
+on:
+  schedule:
+    # Every 6 hours. Minute 15 dodges the on-the-hour scheduler backlog.
+    - cron: "15 0,6,12,18 * * *"
+  workflow_dispatch: # Allows for manual triggering
+  
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run blazer-job
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}

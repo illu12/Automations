@@ -7,13 +7,18 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "check": "npx playwright test",
-    "ui": "npx playwright test --ui"
+    "ui": "npx playwright test --ui",
+    "codegen": "npx playwright codegen",
+    "blazer-job": "npx playwright test --project=check-blazer",
+    "washing-machine-job": "npx playwright test --project=check-washing-machine"
   },
   "dependencies": {
     "@types/node": "^26.4.1",
     "dotenv": "^17.4.2",
     "playwright": "^1.63.0",
     "resend": "^6.26.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
   }
 }
