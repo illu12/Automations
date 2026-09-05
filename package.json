@@ -1,0 +1,19 @@
+{
+  "name": "check-blazer",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "check": "npx playwright test",
+    "ui": "npx playwright test --ui"
+  },
+  "dependencies": {
+    "@types/node": "^26.4.1",
+    "dotenv": "^17.4.2",
+    "playwright": "^1.63.0",
+    "resend": "^6.26.0"
+  }
+}
