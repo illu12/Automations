@@ -20,6 +20,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run washing-machine-job
         env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           E_VASKERI_EMAIL: ${{ secrets.E_VASKERI_EMAIL }}
           E_VASKERI_PASSWORD: ${{ secrets.E_VASKERI_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
